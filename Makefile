@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/10/08 16:14:07 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/10/08 18:57:12 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,21 @@ LDFLAGS					= -L$(DIR_LIBFT) -lft
 
 DIR_SRC					= src
 
-SRC						= main.c
+SRC						= main.c \
+							$(addprefix arg/, \
+								check_arg_int.c check_arg_overflow.c \
+								check_args.c check_duplicate.c parse_args.c \
+							) \
+							$(addprefix stack/, \
+								_stacks.c stack_delete.c stack_fill.c \
+								stack_issorted.c stack_print.c \
+								stack_backpush.c \
+								$(addprefix element/, \
+									stack_elem_delete.c stack_elem_new.c \
+								) \
+								$(addprefix operation/, \
+								) \
+							)
 
 DIR_OBJ					= obj
 
@@ -36,7 +50,7 @@ NAME_LIBFT				= libft/libft.a
 
 DIR_LIBFT				= $(dir $(NAME_LIBFT))
 
-INCLUDE					= -I$(dir $(NAME_LIBFT))/include -Iinclude
+INCLUDE					= -I$(realpath $(DIR_LIBFT))/include -Iinclude
 
 DEPENDENCIES			= $(OBJ:.o=.d)
 
