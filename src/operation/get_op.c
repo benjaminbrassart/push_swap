@@ -6,10 +6,11 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 17:03:05 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/09 17:04:27 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/10/09 18:29:39 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_string.h"
 #include "op.h"
 
 static t_op	get_op_id(enum e_op id)
@@ -35,7 +36,6 @@ static t_op	get_op_name(char const *name)
 t_op	get_op(union u_op op, t_bool by_id)
 {
 	if (by_id)
-		get_op_id(op.id);
-	else
-		get_op_name(op.name);
+		return (get_op_id(op.id));
+	return (get_op_name(op.name));
 }
