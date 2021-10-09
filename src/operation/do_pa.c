@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 17:07:08 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/09 17:36:24 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/10/09 17:37:38 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,5 @@
 
 void	do_pa(void)
 {
-	t_stack const	*a = &_stacks()->a;
-	t_stack const	*b = &_stacks()->b;
-
-	stack_push(b, a);
+	stack_push(&_stacks()->b, &_stacks()->a);
 }
