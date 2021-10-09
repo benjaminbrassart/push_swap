@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 16:16:14 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/08 20:03:13 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/10/09 16:02:50 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,8 @@ void			stack_fill(int *values, t_size len);
 t_bool			stack_issorted(t_stack const *stack, int (*cmp)(int, int));
 
 void			stack_print(t_stack *stack);
+
+void			stack_foreach(t_stack *stack,
+					t_bool (*f)(t_stack *, t_stack_elem *));
 
 #endif
