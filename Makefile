@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/10/08 18:57:12 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/10/09 16:06:09 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,12 @@ SRC						= main.c \
 							$(addprefix arg/, \
 								check_arg_int.c check_arg_overflow.c \
 								check_args.c check_duplicate.c parse_args.c \
+							) \
+							$(addprefix error/, \
+								psexit.c \
+							) \
+							$(addprefix sort/, \
+								sort.c small_sort.c medium_sort.c large_sort.c \
 							) \
 							$(addprefix stack/, \
 								_stacks.c stack_delete.c stack_fill.c \

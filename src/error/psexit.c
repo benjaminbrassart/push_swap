@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   psexit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 16:05:46 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/09 15:27:20 by bbrassar         ###   ########.fr       */
+/*   Created: 2021/10/09 15:09:07 by bbrassar          #+#    #+#             */
+/*   Updated: 2021/10/09 15:58:48 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "arg.h"
+#include "ft_stdio.h"
 #include "pserror.h"
-#include "sort.h"
-#include "stack.h"
+#include <stdlib.h>
 
-int	main(int argc, char *argv[])
+static char const	*get_errno_message(t_errno err)
 {
-	int		*values;
-	t_size	len;
+	int	i;
 
-	check_args(argc, argv);
-	values = parse_args(argc, argv, &len);
-	if (values)
+	i = 0;
+	while (g_errno[i].errno != err && g_errno[i].message)
+		++i;
+	return (g_errno[i].message);
+}
+
+void	psexit(t_errno err)
+{
+	if (err != NONE)
 	{
-		if (!check_duplicate(values, len))
-			psexit(DUPLICATE_VALUES);
-		stack_fill(values, len);
-		sort(&_stacks()->a);
-		stack_delete(&_stacks()->a);
+		ft_putstr_fd("Error: ", 2);
+		ft_putendl_fd(get_errno_message(err), 2);
+		exit(1);
 	}
-	else
-		psexit(MALLOC_FAILED);
-	return (0);
+	exit(0);
 }

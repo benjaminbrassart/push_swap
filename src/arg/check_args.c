@@ -6,29 +6,25 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 17:40:25 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/08 18:12:54 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/10/09 15:26:59 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "arg.h"
-#include "ft_stdio.h"
-#include <stdlib.h>
+#include "pserror.h"
 
 void	check_args(int argc, char *argv[])
 {
 	int	i;
 
 	if (argc == 1)
-		exit(0);
+		psexit(NONE);
 	i = 0;
 	while (++i < argc)
 	{
 		if (!check_arg_int(argv[i]))
-			ft_putendl_fd("Error: an argument is not an integer.", 2);
-		else if (!check_arg_overflow(argv[i]))
-			ft_putendl_fd("Error: an argument overflows int limit.", 2);
-		else
-			continue ;
-		exit(1);
+			psexit(NOT_INTEGER);
+		if (!check_arg_overflow(argv[i]))
+			psexit(INT_OVERFLOW);
 	}
 }
