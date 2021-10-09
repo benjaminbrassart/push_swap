@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/10/09 16:06:09 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/10/09 17:52:26 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,14 +31,17 @@ SRC						= main.c \
 							) \
 							$(addprefix stack/, \
 								_stacks.c stack_delete.c stack_fill.c \
-								stack_issorted.c stack_print.c \
-								stack_backpush.c \
+								stack_issorted.c stack_print.c stack_shift.c \
+								stack_backpush.c stack_frontpush.c \
 								$(addprefix element/, \
 									stack_elem_delete.c stack_elem_new.c \
 								) \
 								$(addprefix operation/, \
+									stack_push.c stack_swap.c stack_rotate.c \
+									stack_reverse_rotate.c \
 								) \
-							)
+							) \
+							$(addprefix util/, swap_i.c)
 
 DIR_OBJ					= obj
 
