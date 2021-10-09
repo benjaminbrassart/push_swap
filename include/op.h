@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 16:40:33 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/09 17:05:22 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/10/09 17:45:30 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,42 +73,20 @@ void				do_rrr(void);
 
 void				do_op(union u_op op, t_bool by_id);
 
-void				undo_pa(void);
-
-void				undo_pb(void);
-
-void				undo_sa(void);
-
-void				undo_sb(void);
-
-void				undo_ss(void);
-
-void				undo_ra(void);
-
-void				undo_rb(void);
-
-void				undo_rr(void);
-
-void				undo_rra(void);
-
-void				undo_rrb(void);
-
-void				undo_rrr(void);
-
 void				undo_op(union u_op op, t_bool by_id);
 
 static const t_op	g_ops[12] = {
-	{PA, "pa", do_pa, undo_pa},
-	{PB, "pb", do_pb, undo_pb},
-	{SA, "sa", do_sa, undo_sa},
-	{SB, "sb", do_sb, undo_sb},
-	{SS, "ss", do_ss, undo_ss},
-	{RA, "ra", do_ra, undo_ra},
-	{RB, "rb", do_rb, undo_rb},
-	{RR, "rr", do_rr, undo_rr},
-	{RRA, "rra", do_rra, undo_rra},
-	{RRB, "rrb", do_rrb, undo_rrb},
-	{RRR, "rrr", do_rrr, undo_rrr},
+	{PA, "pa", do_pa, do_pb},
+	{PB, "pb", do_pb, do_pa},
+	{SA, "sa", do_sa, do_sa},
+	{SB, "sb", do_sb, do_sb},
+	{SS, "ss", do_ss, do_ss},
+	{RA, "ra", do_ra, do_rra},
+	{RB, "rb", do_rb, do_rrb},
+	{RR, "rr", do_rr, do_rrr},
+	{RRA, "rra", do_rra, do_ra},
+	{RRB, "rrb", do_rrb, do_rb},
+	{RRR, "rrr", do_rrr, do_rr},
 	{INVALID, FT_NULL, invalid_operation, invalid_operation},
 };
 
