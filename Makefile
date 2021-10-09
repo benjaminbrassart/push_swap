@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/10/09 17:52:26 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/10/09 18:29:05 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,12 @@ SRC						= main.c \
 							) \
 							$(addprefix error/, \
 								psexit.c \
+							) \
+							$(addprefix operation/, \
+								do_pa.c do_pb.c do_ra.c do_rb.c do_rr.c \
+								do_rra.c do_rrb.c do_rrr.c do_sa.c do_sb.c \
+								do_ss.c do_op.c get_op.c undo_op.c \
+								invalid_operation.c \
 							) \
 							$(addprefix sort/, \
 								sort.c small_sort.c medium_sort.c large_sort.c \
