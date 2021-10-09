@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 16:40:33 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/09 17:48:30 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/10/09 18:21:24 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_op
 union u_op
 {
 	enum e_op	id;
-	char const	*name;
+	char 		*name;
 };
 
 t_op				get_op(union u_op op, t_bool by_id);
