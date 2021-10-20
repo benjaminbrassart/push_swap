@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 18:53:29 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/08 19:07:29 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/10/15 04:15:11 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 #include "ft_stdio.h"
 #include "stack.h"
 
-void	stack_print(t_stack *stack)
+void	stack_print(t_stack const *stack)
 {
 	t_stack_elem	*e;
-	t_size			i;
 
 	e = stack->first;
-	i = 0;
 	ft_putchar(ft_toupper(stack->id));
 	ft_putstr(": [");
-	while (i < stack->size)
+	while (e)
 	{
-		if (i++)
+		if (e->prev)
 			ft_putstr(" -> ");
 		ft_putnbr(e->value);
 		e = e->next;
