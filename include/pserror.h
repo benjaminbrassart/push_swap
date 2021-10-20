@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 15:02:48 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/09 16:59:52 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/10/20 08:31:46 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ struct s_errno_lt
 	char const	*message;
 };
 
-static const struct s_errno_lt	g_errno[] = {
-	{MALLOC_FAILED, "memory allocation failed."},
-	{DUPLICATE_VALUES, "there are duplicate arguments."},
-	{NOT_INTEGER, "an argument is not an integer."},
-	{INT_OVERFLOW, "an argument overflows int limit."},
-	{INVALID_OPERATION, "invalid operation."},
+static struct s_errno_lt const	g_errno[] = {
+	{MALLOC_FAILED, "Memory allocation failed"},
+	{DUPLICATE_VALUES, "There are duplicate arguments"},
+	{NOT_INTEGER, "An argument is not an integer"},
+	{INT_OVERFLOW, "An argument overflows int limit"},
+	{INVALID_OPERATION, "Invalid operation"},
 	{NONE, FT_NULL}
 };
 
