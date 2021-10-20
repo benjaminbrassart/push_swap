@@ -6,15 +6,15 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/10/09 18:29:05 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/10/14 07:18:13 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME					= push_swap
 
-CFLAGS					= -Wall -Werror -Wextra -c -MMD $(INCLUDE)
+CFLAGS					= -Wall -Werror -Wextra -c -MMD $(INCLUDE) -g
 
-LDFLAGS					= -L$(DIR_LIBFT) -lft
+LDFLAGS					= -L$(DIR_LIBFT) -lft -g
 
 DIR_SRC					= src
 
@@ -30,15 +30,15 @@ SRC						= main.c \
 								do_pa.c do_pb.c do_ra.c do_rb.c do_rr.c \
 								do_rra.c do_rrb.c do_rrr.c do_sa.c do_sb.c \
 								do_ss.c do_op.c get_op.c undo_op.c \
-								invalid_operation.c \
+								invalid_operation.c g_ops.c \
 							) \
 							$(addprefix sort/, \
-								sort.c small_sort.c medium_sort.c large_sort.c \
+								sort.c get_median.c \
 							) \
 							$(addprefix stack/, \
 								_stacks.c stack_delete.c stack_fill.c \
 								stack_issorted.c stack_print.c stack_shift.c \
-								stack_backpush.c stack_frontpush.c \
+								stack_backpush.c stack_frontpush.c stack_pop.c \
 								$(addprefix element/, \
 									stack_elem_delete.c stack_elem_new.c \
 								) \
@@ -52,14 +52,6 @@ SRC						= main.c \
 DIR_OBJ					= obj
 
 OBJ						= $(addprefix $(DIR_OBJ)/, $(SRC:.c=.o))
-
-ifdef debug
-
-CFLAGS += -g
-
-LDFLAGS += -g
-
-endif
 
 NAME_LIBFT				= libft/libft.a
 
