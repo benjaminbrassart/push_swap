@@ -6,14 +6,19 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 17:07:08 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/09 17:37:38 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/10/25 13:27:42 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "op.h"
 #include "stack.h"
 
-void	do_pa(void)
+t_bool	do_pa(void)
 {
-	stack_push(&_stacks()->b, &_stacks()->a);
+	t_stack *const	b = &_stacks()->b;
+	
+	if (b->size == 0)
+		return (false);
+	stack_push(b, &_stacks()->a);
+	return (true);
 }

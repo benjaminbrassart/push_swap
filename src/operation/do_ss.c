@@ -6,14 +6,16 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 17:42:50 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/09 17:43:05 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/10/25 13:26:25 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "op.h"
 
-void	do_ss(void)
+t_bool	do_ss(void)
 {
-	do_sa();
-	do_sb();
+	t_bool const	sa = do_sa();
+	t_bool const	sb = do_sb();
+
+	return (sa || sb);
 }

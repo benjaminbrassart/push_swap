@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 16:40:33 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/20 08:31:05 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/10/25 13:32:59 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ typedef struct s_op
 {
 	enum e_op	op;
 	char const	*name;
-	void		(*do_fn)(void);
-	void		(*undo_fn)(void);
+	t_bool		(*do_fn)(void);
+	t_bool		(*undo_fn)(void);
 }	t_op;
 
 union u_op
@@ -49,33 +49,33 @@ union u_op
 
 t_op				get_op(union u_op op, t_bool by_id);
 
-void				invalid_operation(void);
+t_bool				invalid_operation(void);
 
-void				do_pa(void);
+t_bool				do_pa(void);
 
-void				do_pb(void);
+t_bool				do_pb(void);
 
-void				do_sa(void);
+t_bool				do_sa(void);
 
-void				do_sb(void);
+t_bool				do_sb(void);
 
-void				do_ss(void);
+t_bool				do_ss(void);
 
-void				do_ra(void);
+t_bool				do_ra(void);
 
-void				do_rb(void);
+t_bool				do_rb(void);
 
-void				do_rr(void);
+t_bool				do_rr(void);
 
-void				do_rra(void);
+t_bool				do_rra(void);
 
-void				do_rrb(void);
+t_bool				do_rrb(void);
 
-void				do_rrr(void);
+t_bool				do_rrr(void);
 
-void				do_op(union u_op op, t_bool by_id);
+t_bool				do_op(union u_op op, t_bool by_id);
 
-void				undo_op(union u_op op, t_bool by_id);
+t_bool				undo_op(union u_op op, t_bool by_id);
 
 t_op const			*g_ops(void);
 
