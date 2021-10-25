@@ -6,30 +6,34 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 15:09:07 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/09 15:58:48 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/10/25 13:38:40 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stdio.h"
 #include "pserror.h"
+#include "stack.h"
 #include <stdlib.h>
 
-static char const	*get_errno_message(t_errno err)
+static char const	*_get_errno_message(t_errno err)
 {
-	int	i;
+	struct s_errno_lt const	*_errno = g_errno();
+	int						i;
 
 	i = 0;
-	while (g_errno[i].errno != err && g_errno[i].message)
+	while (_errno[i].errno != err && _errno[i].message)
 		++i;
-	return (g_errno[i].message);
+	return (_errno[i].message);
 }
 
 void	psexit(t_errno err)
 {
+	stack_delete(&_stacks()->a);
+	stack_delete(&_stacks()->b);
 	if (err != NONE)
 	{
 		ft_putstr_fd("Error: ", 2);
-		ft_putendl_fd(get_errno_message(err), 2);
+		ft_putendl_fd(_get_errno_message(err), 2);
 		exit(1);
 	}
 	exit(0);
