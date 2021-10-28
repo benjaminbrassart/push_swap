@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 16:16:14 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/14 07:07:13 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:52:37 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ struct s_stacks
 };
 
 struct s_stacks	*_stacks(void);
+
+t_stack			*opposite_stack(t_stack *stack);
 
 void			stack_elem_delete(t_stack_elem *e);
 

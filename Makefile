@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/10/14 07:18:13 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/10/28 17:48:46 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC						= main.c \
 								check_args.c check_duplicate.c parse_args.c \
 							) \
 							$(addprefix error/, \
-								psexit.c \
+								psexit.c g_errno.c \
 							) \
 							$(addprefix operation/, \
 								do_pa.c do_pb.c do_ra.c do_rb.c do_rr.c \
@@ -33,12 +33,13 @@ SRC						= main.c \
 								invalid_operation.c g_ops.c \
 							) \
 							$(addprefix sort/, \
-								sort.c get_median.c \
+								sort.c get_median.c sort_small.c \
 							) \
 							$(addprefix stack/, \
 								_stacks.c stack_delete.c stack_fill.c \
 								stack_issorted.c stack_print.c stack_shift.c \
 								stack_backpush.c stack_frontpush.c stack_pop.c \
+								opposite_stack.c \
 								$(addprefix element/, \
 									stack_elem_delete.c stack_elem_new.c \
 								) \
