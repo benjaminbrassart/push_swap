@@ -6,12 +6,13 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 17:07:08 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/25 13:40:46 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/02 00:02:23 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "op.h"
 #include "stack.h"
+#include "util.h"
 
 t_bool	do_pa(void)
 {

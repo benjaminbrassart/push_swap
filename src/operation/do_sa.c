@@ -6,12 +6,13 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 17:41:45 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/25 13:40:56 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/02 00:02:50 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "op.h"
 #include "stack.h"
+#include "util.h"
 
 t_bool	do_sa(void)
 {
