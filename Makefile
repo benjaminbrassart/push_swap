@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/11/03 09:31:16 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/03 14:41:17 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,16 +30,20 @@ SRC						= main.c \
 								do_pa.c do_pb.c do_ra.c do_rb.c do_rr.c \
 								do_rra.c do_rrb.c do_rrr.c do_sa.c do_sb.c \
 								do_ss.c do_op.c get_op.c undo_op.c \
-								invalid_operation.c g_ops.c \
+								invalid_operation.c g_ops.c stack_pswap.c \
+								stack_protate.c stack_preverse_rotate.c \
+								stack_ppush.c \
 							) \
 							$(addprefix sort/, \
-								sort.c get_median.c small_sort.c medium_sort.c large_sort.c \
+								sort.c get_median.c small_sort.c medium_sort.c \
+								large_sort.c \
 							) \
 							$(addprefix util/, \
-								swap_i.c \
+								get_cmp.c swap_i.c \
 							) \
 							$(addprefix stack/, \
 								_stacks.c opposite_stack.c stack_print.c \
+								stack_remap.c \
 							)
 
 DIR_OBJ					= obj

@@ -6,13 +6,14 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 18:53:29 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/15 04:15:11 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:40:17 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ctype.h"
 #include "ft_stdio.h"
-#include "stack.h"
+#include "stack_type.h"
+#include "util.h"
 
 void	stack_print(t_stack const *stack)
 {
