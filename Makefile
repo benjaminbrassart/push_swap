@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/11/03 05:28:59 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/03 09:31:16 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME					= push_swap
 
 CFLAGS					= -Wall -Werror -Wextra -c -MMD $(INCLUDE) -g
 
-LDFLAGS					= -L$(DIR_LIBFT) -lft -L$(DIR_LIBSTACK) -lstack -g
+LDFLAGS					= -L$(DIR_LIBFT) -L$(DIR_LIBSTACK) -lft -lstack -g
 
 DIR_SRC					= src
 
@@ -33,7 +33,7 @@ SRC						= main.c \
 								invalid_operation.c g_ops.c \
 							) \
 							$(addprefix sort/, \
-								sort.c get_median.c sort_small.c \
+								sort.c get_median.c small_sort.c medium_sort.c large_sort.c \
 							) \
 							$(addprefix util/, \
 								swap_i.c \
@@ -50,7 +50,7 @@ NAME_LIBFT				= libft/libft.a
 
 DIR_LIBFT				= $(dir $(NAME_LIBFT))
 
-NAME_LIBSTACK			= libstack/libftstack.a
+NAME_LIBSTACK			= libstack/libstack.a
 
 DIR_LIBSTACK			= $(dir $(NAME_LIBSTACK))
 
@@ -72,12 +72,6 @@ $(DIR_OBJ)/%.o:			$(DIR_SRC)/%.c
 
 $(LOCAL_LIBS):
 						$(MAKE) -C $(@D) $(@F) clean
-
-# $(NAME_LIBFT):
-# 						$(MAKE) -C $(DIR_LIBFT) libft.a clean
-
-# $(NAME_LIBSTACK):
-# 						$(MAKE) -C $(DIR_LIBSTACK) libstack.a clean
 
 all:					$(NAME)
 
