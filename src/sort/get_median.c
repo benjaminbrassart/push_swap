@@ -6,10 +6,11 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 21:14:38 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/14 06:40:26 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/03 11:13:50 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_stdio.h"
 #include "ft_stdlib.h"
 #include "pserror.h"
 #include "sort.h"
@@ -20,16 +21,16 @@ static int	*stack_toarray(t_stack const *stack)
 {
 	int				*array;
 	t_stack_elem	*e;
-	int				i;
+	unsigned int	i;
 
 	array = ft_calloc(stack->size, sizeof (*array));
 	if (array)
 	{
 		e = stack->first;
-		i = 0;
-		while (e)
+		i = -1;
+		while (++i < stack->size)
 		{
-			array[i++] = e->value;
+			array[i] = e->value;
 			e = e->next;
 		}
 	}
