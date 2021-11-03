@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 20:54:54 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/28 23:03:32 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/03 09:34:18 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void			stack_foreach(t_stack *stack, int (*f)(t_stack_elem *))
  * @param stack the stack to check
  * @param cmp the comparison function
  */
-int				stack_issorted(t_stack *stack, int (*cmp)(int, int))
+int				stack_issorted(t_stack *stack, t_comparator cmp)
 				__attribute__((nonnull(1, 2)));
 
 /**

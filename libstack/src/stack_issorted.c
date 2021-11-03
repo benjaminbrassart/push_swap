@@ -6,13 +6,13 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 23:34:53 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/01 23:37:21 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/03 09:34:25 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack_function.h"
 
-int	stack_issorted(t_stack *stack, int (*cmp)(int, int))
+int	stack_issorted(t_stack *stack, t_comparator cmp)
 {
 	t_stack_elem	*elem;
 

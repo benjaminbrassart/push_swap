@@ -6,12 +6,21 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 21:01:28 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/28 22:18:54 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/03 09:44:34 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_TYPE_H
 # define STACK_TYPE_H
+
+/**
+ * A function that compares two integers
+ * 
+ * @param a the first integer
+ * @param b the second integer
+ * @return a non-0 value if a and b are in the correct order, 0 otherwise
+ */
+typedef int	(*t_comparator)(int a, int b);
 
 /**
  * A doubly linked list holding a value
