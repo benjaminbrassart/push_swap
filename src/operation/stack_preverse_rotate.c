@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_arg_int.c                                    :+:      :+:    :+:   */
+/*   stack_preverse_rotate.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 17:39:35 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/08 18:36:29 by bbrassar         ###   ########.fr       */
+/*   Created: 2021/11/03 10:21:06 by bbrassar          #+#    #+#             */
+/*   Updated: 2021/11/03 10:52:07 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "arg.h"
-#include "ft_ctype.h"
-#include "ft_stdlib.h"
+#include "ft_stdio.h"
+#include "stack_operation.h"
 
-t_bool	check_arg_int(char const *arg)
+void	stack_preverse_rotate(t_stack *stack)
 {
-	char	*end;
-
-	ft_strtoi(arg, (char const **)&end);
-	return (*end == 0 && *arg != 0 && !ft_isspace(*arg));
+	stack_reverse_rotate(stack);
+	ft_printf("r%c\n", stack->id);
 }
