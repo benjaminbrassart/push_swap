@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 16:05:46 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/01 23:59:35 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/03 14:44:07 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 int	main(int argc, char *argv[])
 {
+	t_stack *const	a = &_stacks()->a;
 	int				*values;
 	t_size			len;
 
@@ -27,7 +28,9 @@ int	main(int argc, char *argv[])
 		psexit(MALLOC_FAILED);
 	if (!check_duplicate(values, len))
 		psexit(DUPLICATE_VALUES);
-	stack_fill(&_stacks()->a, values, len);
-	sort(&_stacks()->a, &_stacks()->b);
+	stack_fill(a, values, len);
+	stack_remap(a);
+	stack_print(a);
+	sort();
 	psexit(NONE);
 }
