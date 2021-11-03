@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/10/28 17:48:46 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/03 05:28:59 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME					= push_swap
 
 CFLAGS					= -Wall -Werror -Wextra -c -MMD $(INCLUDE) -g
 
-LDFLAGS					= -L$(DIR_LIBFT) -lft -g
+LDFLAGS					= -L$(DIR_LIBFT) -lft -L$(DIR_LIBSTACK) -lstack -g
 
 DIR_SRC					= src
 
@@ -35,20 +35,12 @@ SRC						= main.c \
 							$(addprefix sort/, \
 								sort.c get_median.c sort_small.c \
 							) \
-							$(addprefix stack/, \
-								_stacks.c stack_delete.c stack_fill.c \
-								stack_issorted.c stack_print.c stack_shift.c \
-								stack_backpush.c stack_frontpush.c stack_pop.c \
-								opposite_stack.c \
-								$(addprefix element/, \
-									stack_elem_delete.c stack_elem_new.c \
-								) \
-								$(addprefix operation/, \
-									stack_push.c stack_swap.c stack_rotate.c \
-									stack_reverse_rotate.c \
-								) \
+							$(addprefix util/, \
+								swap_i.c \
 							) \
-							$(addprefix util/, swap_i.c)
+							$(addprefix stack/, \
+								_stacks.c opposite_stack.c stack_print.c \
+							)
 
 DIR_OBJ					= obj
 
@@ -58,11 +50,18 @@ NAME_LIBFT				= libft/libft.a
 
 DIR_LIBFT				= $(dir $(NAME_LIBFT))
 
-INCLUDE					= -I$(realpath $(DIR_LIBFT))/include -Iinclude
+NAME_LIBSTACK			= libstack/libftstack.a
+
+DIR_LIBSTACK			= $(dir $(NAME_LIBSTACK))
+
+LOCAL_LIBS				=  $(NAME_LIBFT) $(NAME_LIBSTACK)
+
+INCLUDE					= -Iinclude -I$(realpath $(DIR_LIBFT))/include \
+							-I$(realpath $(DIR_LIBSTACK))/include
 
 DEPENDENCIES			= $(OBJ:.o=.d)
 
-$(NAME):				$(NAME_LIBFT) $(OBJ)
+$(NAME):				$(LOCAL_LIBS) $(OBJ)
 						$(CC) $(filter %.o, $^) -o $@ $(LDFLAGS)
 
 -include $(DEPENDENCIES)
@@ -71,8 +70,14 @@ $(DIR_OBJ)/%.o:			$(DIR_SRC)/%.c
 						@mkdir -p $(@D)
 						$(CC) $(CFLAGS) $< -o $@
 
-$(NAME_LIBFT):
-						$(MAKE) -C $(DIR_LIBFT) libft.a clean
+$(LOCAL_LIBS):
+						$(MAKE) -C $(@D) $(@F) clean
+
+# $(NAME_LIBFT):
+# 						$(MAKE) -C $(DIR_LIBFT) libft.a clean
+
+# $(NAME_LIBSTACK):
+# 						$(MAKE) -C $(DIR_LIBSTACK) libstack.a clean
 
 all:					$(NAME)
 
@@ -84,4 +89,7 @@ fclean:					clean
 
 re:						fclean all
 
-.PHONY:					all clean fclean re
+test:
+						$(MAKE) -C test
+
+.PHONY:					all clean fclean re test
