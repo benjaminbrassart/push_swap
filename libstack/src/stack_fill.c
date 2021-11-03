@@ -21,7 +21,7 @@ int	stack_fill(t_stack *stack, int *values, unsigned int length)
 	i = -1;
 	while (++i < length)
 	{
-		elem = stack_elem_new(values[length]);
+		elem = stack_elem_new(values[i]);
 		if (elem == NULL)
 		{
 			stack_delete(stack, NULL);
