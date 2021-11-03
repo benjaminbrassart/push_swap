@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_backpush.c                                   :+:      :+:    :+:   */
+/*   stack_issorted.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 18:41:43 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/15 04:21:29 by bbrassar         ###   ########.fr       */
+/*   Created: 2021/11/01 23:34:53 by bbrassar          #+#    #+#             */
+/*   Updated: 2021/11/01 23:37:21 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "stack_function.h"
 
-void	stack_backpush(t_stack *stack, t_stack_elem *e)
+int	stack_issorted(t_stack *stack, int (*cmp)(int, int))
 {
-	t_stack_elem *const	bottom = stack->last;
+	t_stack_elem	*elem;
 
-	if (!e)
-		return ;
-	e->prev = bottom;
-	stack->last = e;
-	if (bottom)
-		bottom->next = e;
-	if (!stack->first)
-		stack->first = e;
-	++(stack->size);
+	elem = stack->first;
+	while (elem)
+	{
+		if (elem->prev && cmp(elem->prev->value, elem->value) == 0)
+			return (0);
+		elem = elem->next;
+	}
+	return (1);
 }

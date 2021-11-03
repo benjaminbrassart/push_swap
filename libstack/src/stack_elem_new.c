@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_fill.c                                       :+:      :+:    :+:   */
+/*   stack_elem_new.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 16:31:57 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/09 15:28:49 by bbrassar         ###   ########.fr       */
+/*   Created: 2021/10/28 21:06:42 by bbrassar          #+#    #+#             */
+/*   Updated: 2021/11/01 23:02:09 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_def.h"
-#include "pserror.h"
-#include "stack.h"
+#include "stack_function.h"
 #include <stdlib.h>
 
-void	stack_fill(int *values, t_size len)
+t_stack_elem	*stack_elem_new(int value)
 {
-	t_size			i;
-	t_stack_elem	*e;
+	t_stack_elem	*elem;
 
-	i = -1;
-	while (++i < len)
+	elem = (t_stack_elem *)malloc(sizeof (*elem));
+	if (elem)
 	{
-		e = stack_elem_new(values[i]);
-		if (!e)
-		{
-			free(values);
-			stack_delete(&_stacks()->a);
-			psexit(MALLOC_FAILED);
-		}
-		stack_backpush(&_stacks()->a, e);
+		elem->value = value;
+		elem->prev = NULL;
+		elem->next = NULL;
 	}
-	free(values);
+	return (elem);
 }

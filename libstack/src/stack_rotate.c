@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_swap.c                                       :+:      :+:    :+:   */
+/*   stack_rotate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/09 17:17:58 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/09 17:33:54 by bbrassar         ###   ########.fr       */
+/*   Created: 2021/11/01 23:42:35 by bbrassar          #+#    #+#             */
+/*   Updated: 2021/11/01 23:46:20 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
-#include "util.h"
+#include "stack_function.h"
+#include "stack_operation.h"
 
-void	stack_swap(t_stack *stack)
+void	stack_rotate(t_stack *stack)
 {
-	if (stack->first && stack->first->next)
-		swap_i(&stack->first->value, &stack->first->next->value);
+	if (stack->size >= 2)
+		stack_backpush(stack, stack_shift(stack));
 }

@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_rotate.c                                     :+:      :+:    :+:   */
+/*   stack_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/09 17:28:51 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/14 07:02:07 by bbrassar         ###   ########.fr       */
+/*   Created: 2021/11/01 23:31:43 by bbrassar          #+#    #+#             */
+/*   Updated: 2021/11/02 01:03:51 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "stack_function.h"
+#include "stack_operation.h"
 
-void	stack_rotate(t_stack *stack)
+void	stack_push(t_stack *sender, t_stack *receiver)
 {
-	stack_backpush(stack, stack_shift(stack));
+	t_stack_elem *const	elem = stack_shift(sender);
+
+	if (elem)
+		stack_frontpush(receiver, elem);
 }

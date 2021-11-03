@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_push.c                                       :+:      :+:    :+:   */
+/*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/09 17:08:41 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/09 17:28:29 by bbrassar         ###   ########.fr       */
+/*   Created: 2021/10/28 21:04:34 by bbrassar          #+#    #+#             */
+/*   Updated: 2021/10/28 21:04:56 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#ifndef STACK_H
+# define STACK_H
 
-void	stack_push(t_stack *sender, t_stack *receiver)
-{
-	stack_frontpush(receiver, stack_shift(sender));
-}
+# include "stack_type.h"
+# include "stack_operation.h"
+# include "stack_function.h"
+
+#endif

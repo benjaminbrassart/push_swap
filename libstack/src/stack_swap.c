@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_elem_new.c                                   :+:      :+:    :+:   */
+/*   stack_swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 16:41:35 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/08 16:42:53 by bbrassar         ###   ########.fr       */
+/*   Created: 2021/11/01 23:39:35 by bbrassar          #+#    #+#             */
+/*   Updated: 2021/11/01 23:42:17 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stdlib.h"
-#include "stack.h"
+#include "stack_function.h"
+#include "stack_operation.h"
 
-t_stack_elem	*stack_elem_new(int value)
+void	stack_swap(t_stack *stack)
 {
-	t_stack_elem *const	elem = ft_calloc(1, sizeof (*elem));
+	t_stack_elem	*elems[2];
 
-	if (elem)
-		elem->value = value;
-	return (elem);
+	if (stack->size >= 2)
+	{
+		elems[0] = stack_shift(stack);
+		elems[1] = stack_shift(stack);
+		stack_frontpush(stack, elems[0]);
+		stack_frontpush(stack, elems[1]);
+	}
 }

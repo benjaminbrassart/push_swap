@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_delete.c                                     :+:      :+:    :+:   */
+/*   stack_frontpush.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 16:44:46 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/08 18:06:02 by bbrassar         ###   ########.fr       */
+/*   Created: 2021/10/28 23:10:25 by bbrassar          #+#    #+#             */
+/*   Updated: 2021/11/01 23:58:25 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "stack_function.h"
 #include <stdlib.h>
 
-void	stack_delete(t_stack const *stack)
+void	stack_frontpush(t_stack *stack, t_stack_elem *elem)
 {
-	t_stack_elem	*e;
-	t_stack_elem	*slow;
-
-	e = stack->first;
-	while (e)
-	{
-		slow = e->next;
-		free(e);
-		e = slow;
-	}
+	if (stack->size == 0)
+		stack->last = elem;
+	else
+		stack->first->prev = elem;
+	elem->next = stack->first;
+	stack->first = elem;
+	++stack->size;
 }

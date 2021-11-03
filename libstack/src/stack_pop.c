@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_frontpush.c                                  :+:      :+:    :+:   */
+/*   stack_pop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 19:05:45 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/15 04:14:00 by bbrassar         ###   ########.fr       */
+/*   Created: 2021/10/28 21:42:11 by bbrassar          #+#    #+#             */
+/*   Updated: 2021/11/01 23:27:58 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "stack_function.h"
+#include <stdlib.h>
 
-void	stack_frontpush(t_stack *stack, t_stack_elem *e)
+t_stack_elem	*stack_pop(t_stack *stack)
 {
-	t_stack_elem *const	top = stack->first;
+	t_stack_elem	*last;
 
-	if (!e)
-		return ;
-	e->next = top;
-	stack->first = e;
-	if (top)
-		top->prev = e;
-	++(stack->size);
+	if (stack->size == 0)
+		return (NULL);
+	last = stack->last;
+	if (last->prev)
+		last->prev->next = NULL;
+	stack->last = last->prev;
+	last->prev = NULL;
+	--stack->size;
+	return (last);
 }

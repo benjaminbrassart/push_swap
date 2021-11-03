@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_pop.c                                        :+:      :+:    :+:   */
+/*   stack_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 07:06:51 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/14 07:36:26 by bbrassar         ###   ########.fr       */
+/*   Created: 2021/10/28 23:00:58 by bbrassar          #+#    #+#             */
+/*   Updated: 2021/10/28 23:06:41 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "stack_function.h"
+#include <stdlib.h>
 
-t_stack_elem	*stack_pop(t_stack *stack)
+int	stack_fill(t_stack *stack, int *values, unsigned int length)
 {
-	t_stack_elem *const	e = stack->last;
+	unsigned int	i;
+	t_stack_elem	*elem;
 
-	if (e)
+	i = -1;
+	while (++i < length)
 	{
-		if (e->prev)
-			e->prev->next = FT_NULL;
-		stack->last = e->prev;
-		e->prev = FT_NULL;
-		(--stack->size);
+		elem = stack_elem_new(values[length]);
+		if (elem == NULL)
+		{
+			stack_delete(stack, NULL);
+			return (0);
+		}
+		stack_backpush(stack, elem);
 	}
-	return (e);
+	return (1);
 }
