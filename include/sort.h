@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 19:29:35 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/15 04:27:35 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/03 10:49:17 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,22 @@
 
 # include "stack.h"
 
-int		get_median(t_stack const *stack);
+typedef enum e_order
+{
+	ASC = 0,
+	DESC
+}	t_order;
 
-void	sort(t_stack *a, t_stack *b);
+t_comparator	get_cmp(t_order order);
+
+int				get_median(t_stack const *stack);
+
+void			sort(void);
+
+int				small_sort(t_stack *stack, t_order order);
+
+int				medium_sort(t_stack *stack, t_order order);
+
+int				large_sort(t_stack *stack, t_order order);
 
 #endif
