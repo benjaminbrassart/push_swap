@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 17:38:03 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/02 00:02:33 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/06 08:38:16 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ t_bool	do_ra(void)
 
 	if (a->size < 2)
 		return (false);
-	stack_rotate(a);
+	stack_protate(a);
 	return (true);
 }
