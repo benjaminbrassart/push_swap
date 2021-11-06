@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 19:28:46 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/04 10:34:35 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/06 13:22:35 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,12 @@ void	sort(unsigned int msb)
 		while (i--)
 		{
 			if ((a->first->value & (1 << n)) == 0)
-			{
 				do_pb();
-				ft_printf("pb\n");
-			}
 			else
-			{
 				do_ra();
-				ft_printf("ra\n");
-			}
 		}
 		while (do_pa())
-			ft_printf("pa\n");
+			;
 		++n;
 	}
 }
