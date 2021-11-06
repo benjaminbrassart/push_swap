@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/11/04 10:20:06 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/06 08:39:31 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ SRC						= main.c \
 								stack_ppush.c \
 							) \
 							$(addprefix sort/, \
-								sort.c get_median.c \
+								sort.c sort_small.c get_median.c \
 							) \
 							$(addprefix util/, \
 								get_cmp.c swap_i.c get_most_significant_bit.c \
