@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 16:05:46 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/04 10:34:49 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/06 08:14:18 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ int	main(int argc, char *argv[])
 	msb = get_highest_most_significant_bit(values, len);
 	stack_fill(a, values, len);
 	stack_remap(a);
-	sort(msb);
+	if (a->size < 7)
+		sort_small();
+	else
+		sort(msb);
 	psexit(NONE);
 }
