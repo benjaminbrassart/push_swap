@@ -6,14 +6,12 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 15:02:48 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/10/20 08:54:36 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/07 17:20:12 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PSERROR_H
 # define PSERROR_H
-
-# include "ft_def.h"
 
 typedef enum e_errno
 {
@@ -22,6 +20,7 @@ typedef enum e_errno
 	DUPLICATE_VALUES,
 	NOT_INTEGER,
 	INT_OVERFLOW,
+	INT_UNDERFLOW,
 	INVALID_OPERATION,
 }	t_errno;
 
