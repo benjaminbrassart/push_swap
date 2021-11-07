@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:21:06 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/03 10:52:07 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/07 16:35:37 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@
 void	stack_preverse_rotate(t_stack *stack)
 {
 	stack_reverse_rotate(stack);
-	ft_printf("r%c\n", stack->id);
+	ft_printf("rr%c\n", stack->id);
 }
