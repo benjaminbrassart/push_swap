@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/07 16:41:27 by bbrassar          #+#    #+#              #
-#    Updated: 2021/11/07 16:41:27 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/07 16:45:26 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,14 +107,13 @@ for i in $(seq 1 "$test_count"); do
 
 	printf -- "| ${LIGHT_BLUE}%*d ${RESET}| ${LIGHT_BLUE}checker " ${#test_count} $i
 	case "$checker_result" in
-		OK)
-			printf -- "${LIGHT_GREEN}";;
-		KO)
-			printf "args: $args""result: $push_swap_result"
-			printf -- "${LIGHT_RED}";;
-		*)
+		Error)
 			printf -- "${RED}Error!";
 			continue="";;
+		KO)
+			printf -- "${LIGHT_RED}";;
+		*)
+			printf -- "${LIGHT_GREEN}";;
 	esac
 	if test -n "$continue"; then
 		printf "${BOLD}${checker_result}${RESET}     ${BOLD}${YELLOW}$op_count${RESET} ${LIGHT_BLUE}operation"
