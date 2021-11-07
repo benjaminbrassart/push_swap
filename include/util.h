@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 17:26:40 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/04 10:11:41 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/07 18:23:41 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,7 @@ t_stack			*opposite_stack(t_stack *stack)
  * 
  * @param stack the stack to print
  */
-void			stack_print(t_stack const *stack)
-				__attribute__((nonnull(1)));
-
-/**
- * Map a stack and replace each number by its order
- * 
- * @param stack the stack to map
- * @return true if the mapping went flawlessly, false otherwise
- */
-t_bool			stack_remap(t_stack *stack)
+void			stack_print(t_stack *stack)
 				__attribute__((nonnull(1)));
 
 /**
@@ -52,6 +43,8 @@ t_bool			stack_remap(t_stack *stack)
  */
 void			swap_i(int *a, int *b)
 				__attribute__((nonnull(1, 2)));
+
+int				*insertion_sort(int *values, unsigned int len);
 
 /**
  * Get the most significant bit of a number
