@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/11/06 08:39:31 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/07 18:27:36 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,13 +37,13 @@ SRC						= main.c \
 							$(addprefix sort/, \
 								sort.c sort_small.c get_median.c \
 							) \
+							$(addprefix stack/, \
+								_stacks.c opposite_stack.c stack_print.c \
+							) \
 							$(addprefix util/, \
 								get_cmp.c swap_i.c get_most_significant_bit.c \
 								get_highest_most_significant_bit.c \
-							) \
-							$(addprefix stack/, \
-								_stacks.c opposite_stack.c stack_print.c \
-								stack_remap.c \
+								insertion_sort.c \
 							)
 
 DIR_OBJ					= obj
