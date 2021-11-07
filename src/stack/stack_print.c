@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 18:53:29 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/03 14:40:17 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/07 17:07:55 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "stack_type.h"
 #include "util.h"
 
-void	stack_print(t_stack const *stack)
+void	stack_print(t_stack *stack)
 {
 	t_stack_elem	*e;
 

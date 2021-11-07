@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 21:14:38 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/03 11:13:50 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/07 17:07:30 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	sort_array(int *array, t_size len)
 	}
 }
 
-int	get_median(t_stack const *stack)
+int	get_median(t_stack *stack)
 {
 	int *const	array = stack_toarray(stack);
 	int			median;
