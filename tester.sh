@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/07 16:41:27 by bbrassar          #+#    #+#              #
-#    Updated: 2021/11/07 16:45:26 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/07 16:46:26 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,10 +116,10 @@ for i in $(seq 1 "$test_count"); do
 			printf -- "${LIGHT_GREEN}";;
 	esac
 	if test -n "$continue"; then
-		printf "${BOLD}${checker_result}${RESET}     ${BOLD}${YELLOW}$op_count${RESET} ${LIGHT_BLUE}operation"
+		printf -- "${BOLD}${checker_result}${RESET}     ${BOLD}${YELLOW}$op_count${RESET} ${LIGHT_BLUE}operation"
 		if test "$op_count" -gt "1"; then
-			printf "s"
+			printf -- "s"
 		fi
 	fi
-	printf "${RESET}\n"
+	printf -- "${RESET}\n"
 done
