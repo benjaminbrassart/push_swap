@@ -6,12 +6,11 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 15:09:07 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/06 16:27:01 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/07 11:39:03 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stdio.h"
-#include "oplist.h"
 #include "pserror.h"
 #include "stack.h"
 #include "util.h"
