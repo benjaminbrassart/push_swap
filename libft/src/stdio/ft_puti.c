@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_puti.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/30 15:27:43 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/07/22 14:15:24 by bbrassar         ###   ########.fr       */
+/*   Created: 2021/11/09 18:16:13 by bbrassar          #+#    #+#             */
+/*   Updated: 2021/11/09 18:22:12 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_stdio.h"
 
-char	*ft_strncat(char *dst, char const *src, t_size n)
+int	ft_puti(int n)
 {
-	t_size	i;
-	t_size	j;
-
-	i = 0;
-	j = 0;
-	while (dst[j])
-		++j;
-	while (i < n && src[i])
-		dst[j++] = src[i++];
-	dst[j] = 0;
-	return (dst);
+	return (ft_dputi(1, n));
 }

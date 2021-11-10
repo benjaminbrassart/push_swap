@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_dputnl.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/30 15:27:43 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/07/22 14:15:24 by bbrassar         ###   ########.fr       */
+/*   Created: 2021/11/09 18:54:21 by bbrassar          #+#    #+#             */
+/*   Updated: 2021/11/10 11:44:55 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_stdio.h"
 
-char	*ft_strncat(char *dst, char const *src, t_size n)
+int	ft_dputnl(int fd, char const *s)
 {
-	t_size	i;
-	t_size	j;
+	int	printed_chars[2];
 
-	i = 0;
-	j = 0;
-	while (dst[j])
-		++j;
-	while (i < n && src[i])
-		dst[j++] = src[i++];
-	dst[j] = 0;
-	return (dst);
+	printed_chars[0] = ft_dputs(fd, s);
+	if (printed_chars[0] == -1)
+		return (-1);
+	printed_chars[1] = ft_dputc(fd, '\n');
+	if (printed_chars[1] == -1)
+		return (-1);
+	return (printed_chars[0] + printed_chars[1]);
 }

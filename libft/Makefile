@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/14 02:36:44 by bbrassar          #+#    #+#              #
-#    Updated: 2021/10/02 14:40:57 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/10 11:44:37 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,15 @@ NAME_SO				= libft.so
 CFLAGS				= -Wall -Werror -Wextra -c -MMD -I$(DIR_INCLUDE) \
 						-I$(DIR_INCLUDE)/private
 
-LDFLAGS				= -fPIC -shared
+LDFLAGS				= -fPIC
+
+ifeq ($(DEBUG), true)
+CFLAGS				+= -g
+
+LDFLAGS				+= -g
+endif
+
+LDFLAGS				= -fPIC
 
 DIR_SRC				= src
 
@@ -25,17 +33,17 @@ SRC					=	$(addsuffix .c, \
 							$(addprefix ctype/ft_, \
 								isalnum isalpha isascii iscntrl isdigit \
 								isgraph islower isprint ispunct isspace \
-								isupper isxdigit tolower toupper \
+								isupper isxdigit tolower toupper isblank \
 							) \
 							$(addprefix stdio/ft_, \
-								putchar_fd putchar putendl_fd putendl \
-								putnbr_fd putnbr putstr_fd putstr \
+								dputc dputi dputs dputui putc puti puts putui \
+								putnl dputnl putub dputub \
 							) \
 							$(addprefix stdio/printf/ft_, \
 								patoi get_printer parse_options print_char \
 								print_hex print_int print_pointer print_raw \
 								print_string print_uint printf dprintf vprintf \
-								vdprintf putstr_fn \
+								vdprintf putstr_fn get_printers \
 							) \
 							$(addprefix list/ft_, \
 								lstadd_back lstadd_front lstclear lstdelone \
@@ -48,7 +56,8 @@ SRC					=	$(addsuffix .c, \
 								strjoin strlcat strlcpy strlen strmapi \
 								strncasecmp strncat strncmp strncpy strndup \
 								strnlen strnstr strrchr strrepeat strrev \
-								strstr strtrim substr strrstr \
+								strstr strtrim substr strrstr strpbrk strspn \
+								stpcpy strchrnul \
 							) \
 							$(addprefix stdlib/ft_, \
 								calloc atoi atoll itoa lltoa strtoi strtol \
@@ -76,7 +85,7 @@ $(DIR_OBJ)/%.o:		$(DIR_SRC)/%.c
 					@mkdir -p $(@D)
 					$(CC) $(CFLAGS) $< -o $@
 
-$(NAME_SO):			$(OBJ)
+$(NAME_SO):			$(OBJ) $(DIR_OBJ)/entry.o
 					$(CC) $^ -o $@ $(LDFLAGS)
 
 all:				$(NAME) $(NAME_SO)
