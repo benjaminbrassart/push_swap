@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 15:09:07 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/07 11:39:03 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/10 11:41:24 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	psexit(t_errno err)
 	stack_delete(&_stacks()->b, FT_NULL);
 	if (err != NONE)
 	{
-		ft_putstr_fd("Error: ", 2);
-		ft_putendl_fd(_get_errno_message(err), 2);
+		ft_dputs(2, "Error: ");
+		ft_dputnl(2, _get_errno_message(err));
 		exit(1);
 	}
 	exit(0);

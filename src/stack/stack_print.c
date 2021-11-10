@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 18:53:29 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/07 17:07:55 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/10 11:41:48 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void	stack_print(t_stack *stack)
 	t_stack_elem	*e;
 
 	e = stack->first;
-	ft_putchar(ft_toupper(stack->id));
-	ft_putstr(": [");
+	ft_putc(ft_toupper(stack->id));
+	ft_puts(": [");
 	while (e)
 	{
 		if (e->prev)
-			ft_putstr(" -> ");
-		ft_putnbr(e->value);
+			ft_puts(" -> ");
+		ft_puti(e->value);
 		e = e->next;
 	}
-	ft_putendl("]");
+	ft_putnl("]");
 }
