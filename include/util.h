@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 17:26:40 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/07 18:23:41 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/19 06:29:04 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct s_stacks
 }	t_stacks;
 
 t_stacks		*_stacks(void);
+
+t_stack			*get_stack(int id);
 
 t_stack			*opposite_stack(t_stack *stack)
 				__attribute__((nonnull(1)));
