@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 19:28:46 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/06 13:22:35 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/19 08:10:50 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ static int	_cmp_asc(int a, int b)
 
 void	sort(unsigned int msb)
 {
-	t_stack *const	a = &_stacks()->a;
+	t_stack *const	a = get_stack('a');
 	unsigned int	i;
 	unsigned int	n;
 
 	n = 0;
-	while (n < msb && !stack_issorted(a, _cmp_asc))
+	while (n <= msb && !stack_issorted(a, _cmp_asc))
 	{
 		i = a->size;
 		while (i--)
