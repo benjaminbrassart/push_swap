@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 10:02:34 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/04 10:05:17 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/19 07:59:46 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,10 @@
 
 unsigned int	get_highest_most_significant_bit(int *values, unsigned int n)
 {
-	unsigned int	max;
-	unsigned int	msb;
+	int	comb;
 
-	max = 0;
+	comb = 0;
 	while (n--)
-	{
-		msb = get_most_significant_bit(values[n]);
-		if (msb > max)
-			max = msb;
-	}
-	return (max);
+		comb |= values[n];
+	return (get_most_significant_bit(comb));
 }
