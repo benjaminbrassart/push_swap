@@ -6,13 +6,17 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/28 20:50:13 by bbrassar          #+#    #+#              #
-#    Updated: 2021/11/02 01:02:56 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/19 07:39:14 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME				= libstack.a
 
 CFLAGS				= -Wall -Werror -Wextra -c -MMD -Iinclude
+
+ifeq ($(DEBUG), true)
+CFLAGS				+= -g
+endif
 
 DIR_SRC				= src
 
