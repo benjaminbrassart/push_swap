@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 21:14:38 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/07 17:07:30 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/19 09:00:46 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ static int	*stack_toarray(t_stack const *stack)
 	t_stack_elem	*e;
 	unsigned int	i;
 
-	array = ft_calloc(stack->size, sizeof (*array));
-	if (array)
+	if (ft_pcalloc(stack->size, sizeof (*array), (void **)&array))
 	{
 		e = stack->first;
 		i = -1;
@@ -67,5 +66,6 @@ int	get_median(t_stack *stack)
 		free(array);
 		return (median);
 	}
-	psexit(MALLOC_FAILED);
+	print_error(ERROR_MALLOC_FAILED);
+	return (-1);
 }

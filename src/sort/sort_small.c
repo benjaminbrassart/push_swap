@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 12:39:53 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/06 13:19:31 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/19 09:04:21 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,20 +86,21 @@ static void	_sort3(t_stack *stack, t_order order)
 	_solve_pattern(stack, pattern);
 }
 
-void	sort_small(void)
+t_bool	sort_small(int median)
 {
-	t_stack *const		a = &_stacks()->a;
-	t_stack *const		b = &_stacks()->b;
-	int const			median = get_median(a);
+	t_stack *const		a = get_stack('a');
+	t_stack *const		b = get_stack('b');
 	unsigned int const	osz = a->size;
 	unsigned int		i;
 
+	if (median == -1)
+		return (false);
 	if (osz <= 3)
 		_sort3(a, ASC);
 	if (stack_issorted(a, get_cmp(ASC)))
-		return ;
+		return (true);
 	i = 0;
-	while (i < osz && a->size > osz / 2)
+	while (i < osz && a->size > osz / 2 + (osz & 1))
 	{
 		if (a->first->value < median)
 			do_pb();
@@ -111,4 +112,5 @@ void	sort_small(void)
 	_sort3(b, DESC);
 	while (do_pa())
 		;
+	return (true);
 }
