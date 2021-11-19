@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 14:12:35 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/10 11:46:00 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/17 22:52:27 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,26 +126,26 @@ int		ft_dputub(int fd, unsigned int n, char const *base)
 		__attribute__((nonnull(3)));
 
 void	ft_putchar(char c)
-		__attribute__((deprecated("use ft_putc() instead")));
+		__attribute__((deprecated("use ft_putc() otherwise")));
 
 void	ft_putchar_fd(char c, int fd)
-		__attribute__((deprecated("use ft_dputc() instead")));
+		__attribute__((deprecated("use ft_dputc() otherwise")));
 
 void	ft_putstr(char const *s)
-		__attribute__((deprecated("use ft_puts() instead")));
+		__attribute__((deprecated("use ft_puts() otherwise")));
 
 void	ft_putstr_fd(char const *s, int fd)
-		__attribute__((deprecated("use ft_dputs() instead")));
+		__attribute__((deprecated("use ft_dputs() otherwise")));
 
 void	ft_putendl(char const *s);
 
 void	ft_putendl_fd(char const *s, int fd);
 
 void	ft_putnbr(int n)
-		__attribute__((deprecated("use ft_puti() instead")));
+		__attribute__((deprecated("use ft_puti() otherwise")));
 
 void	ft_putnbr_fd(int n, int fd)
-		__attribute__((deprecated("use ft_dputi() instead")));
+		__attribute__((deprecated("use ft_dputi() otherwise")));
 
 int		ft_printf(char const *fmt, ...)
 		__attribute__((format(printf, 1, 2)));
