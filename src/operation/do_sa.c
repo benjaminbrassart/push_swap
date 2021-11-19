@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 17:41:45 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/06 08:38:37 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/19 07:13:42 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 t_bool	do_sa(void)
 {
-	t_stack *const	a = &_stacks()->a;
+	t_stack *const	a = get_stack('a');
 
 	if (a->size < 2)
 		return (false);
