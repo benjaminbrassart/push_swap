@@ -6,25 +6,30 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/11/07 18:27:36 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/19 07:40:00 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME					= push_swap
 
-CFLAGS					= -Wall -Werror -Wextra -c -MMD $(INCLUDE) -g
+CFLAGS					= -Wall -Werror -Wextra -c -MMD $(INCLUDE)
 
-LDFLAGS					= -L$(DIR_LIBFT) -L$(DIR_LIBSTACK) -lft -lstack -g
+LDFLAGS					= -L$(DIR_LIBFT) -L$(DIR_LIBSTACK) -lft -lstack
+
+ifeq ($(DEBUG), true)
+CFLAGS					+= -g
+
+LDFLAGS					+= -g
+endif
 
 DIR_SRC					= src
 
 SRC						= main.c \
 							$(addprefix arg/, \
-								check_arg_int.c check_arg_overflow.c \
 								check_args.c check_duplicate.c parse_args.c \
 							) \
 							$(addprefix error/, \
-								psexit.c g_errno.c \
+								print_error.c \
 							) \
 							$(addprefix operation/, \
 								do_pa.c do_pb.c do_ra.c do_rb.c do_rr.c \
@@ -34,11 +39,16 @@ SRC						= main.c \
 								stack_protate.c stack_preverse_rotate.c \
 								stack_ppush.c \
 							) \
+							$(addprefix optimization/, \
+								op_in_stack.c op_list_add.c op_list_clear.c \
+								op_list_dump.c op_list_get.c op_list_remove.c \
+								op_list_shift.c op_node_new.c \
+							) \
 							$(addprefix sort/, \
 								sort.c sort_small.c get_median.c \
 							) \
 							$(addprefix stack/, \
-								_stacks.c opposite_stack.c stack_print.c \
+								get_stack.c opposite_stack.c stack_print.c \
 							) \
 							$(addprefix util/, \
 								get_cmp.c swap_i.c get_most_significant_bit.c \
@@ -74,8 +84,8 @@ $(DIR_OBJ)/%.o:			$(DIR_SRC)/%.c
 						@mkdir -p $(@D)
 						$(CC) $(CFLAGS) $< -o $@
 
-$(LOCAL_LIBS):
-						$(MAKE) -C $(@D) $(@F) clean
+$(LOCAL_LIBS):			.FORCE
+						$(MAKE) -C $(@D) DEBUG=$(DEBUG) $(@F)
 
 all:					$(NAME)
 
@@ -89,5 +99,7 @@ re:						fclean all
 
 test:
 						$(MAKE) -C test
+
+.FORCE:
 
 .PHONY:					all clean fclean re test
