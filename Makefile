@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/11/19 07:40:00 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/19 11:29:55 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,11 +38,6 @@ SRC						= main.c \
 								invalid_operation.c g_ops.c stack_pswap.c \
 								stack_protate.c stack_preverse_rotate.c \
 								stack_ppush.c \
-							) \
-							$(addprefix optimization/, \
-								op_in_stack.c op_list_add.c op_list_clear.c \
-								op_list_dump.c op_list_get.c op_list_remove.c \
-								op_list_shift.c op_node_new.c \
 							) \
 							$(addprefix sort/, \
 								sort.c sort_small.c get_median.c \
