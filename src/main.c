@@ -6,13 +6,12 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 16:05:46 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/19 09:07:35 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/22 09:26:50 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "arg.h"
 #include "ft_stdio.h"
-#include "optimization.h"
 #include "pserror.h"
 #include "sort.h"
 #include "stack.h"
