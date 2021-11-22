@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/07 16:41:27 by bbrassar          #+#    #+#              #
-#    Updated: 2021/11/19 12:03:38 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/22 09:28:36 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ while true; do
 	shift
 done
 
-test "$#" -eq "3" || abort "Usage: $0 [-lv] [--] <push_swap directory> <stack size> <test count>"
+test "$#" -eq "3" || abort "Usage: $0 [-lvnh] [--] <push_swap directory> <stack size> <test count>"
 
 test -e "$1" || abort "Directory '$1' does not exist."
 test -d "$1" || abort "File '$1' is not a directory."
