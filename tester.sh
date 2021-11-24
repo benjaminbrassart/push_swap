@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/07 16:41:27 by bbrassar          #+#    #+#              #
-#    Updated: 2021/11/22 09:28:36 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/24 22:02:51 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ valgrind_get_leaks() {
 		perl -pe 's/.* in (\d+) blocks$/$1/'
 }
 
-opts=$(getopt -o lvhn -- "$@" 2> /dev/null)
+opts=$(getopt lvhn -- "$@" 2> /dev/null)
 
 eval set -- "$opts"
 while true; do
@@ -89,6 +89,24 @@ make_result=$(make -C "$push_swap_dir" 2>&1 > /dev/null) || abort "$make_result"
 test -e "$push_swap" || abort "File '$push_swap' does not exist."
 test -f "$push_swap" || abort "File '$push_swap' is not a regular file."
 test -x "$push_swap" || abort "File '$push_swap' is not executable."
+
+if ! test -e "$checker"; then
+	platform="$(uname)"
+	case "$platform" in
+		Darwin)
+			checker_url="https://projects.intra.42.fr/uploads/document/document/6051/checker_Mac"
+			;;
+		Linux)
+			checker_url="https://projects.intra.42.fr/uploads/document/document/6052/checker_linux"
+			;;
+		*)
+			abort "Platform '$platform' unsupported."
+			;;
+	esac
+	printf -- "${YELLOW}Downloading '$checker_url'...${RESET}\n"
+	curl -L -o "$checker" "$checker_url" --progress-bar > /dev/null 2>&1 || abort "Failed to download '$checker_url'"
+	chmod +x "$checker"
+fi
 
 test -e "$checker" || abort "File '$checker' does not exist."
 test -f "$checker" || abort "File '$checker' is not a regular file."
