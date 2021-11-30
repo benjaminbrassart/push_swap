@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/11/30 06:17:40 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/30 06:18:14 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,6 @@ LDFLAGS					= -L$(DIR_LIBFT) -L$(DIR_LIBSTACK) -lft -lstack
 
 ifeq ($(DEBUG), true)
 CFLAGS					+= -g
-
-LDFLAGS					+= -g
 endif
 
 DIR_SRC					= src
@@ -80,7 +78,7 @@ $(DIR_OBJ)/%.o:			$(DIR_SRC)/%.c
 						$(CC) $(CFLAGS) $< -o $@
 
 $(LOCAL_LIBS):
-						$(MAKE) -C $(@D) DEBUG=$(DEBUG) $(@F)
+						$(MAKE) -C $(@D) $(@F)
 
 all:					$(NAME)
 
