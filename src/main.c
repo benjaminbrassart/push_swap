@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 16:05:46 by bbrassar          #+#    #+#             */
-/*   Updated: 2021/11/22 09:26:50 by bbrassar         ###   ########.fr       */
+/*   Updated: 2021/11/30 06:49:57 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ int	main(int argc, char *argv[])
 	if (!check_args(argc, argv))
 		return (1);
 	values = parse_args(argc, argv, &values_len);
-	if (!(values && check_duplicate(values, values_len)
-			&& _values_remap(values, values_len)))
-		free_return(values, 1);
+	if (!values || !check_duplicate(values, values_len)
+			|| !_values_remap(values, values_len))
+		return (free_return(values, 1));
 	if (get_stack('a')->size >= 7)
 		sort(get_highest_most_significant_bit(values, values_len));
 	else if (!sort_small(get_median(get_stack('a'))))
