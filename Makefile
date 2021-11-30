@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/11/30 06:15:42 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/30 06:17:40 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,7 +92,4 @@ fclean:					clean
 
 re:						fclean all
 
-test:
-						$(MAKE) -C test
-
-.PHONY:					all clean fclean re test
+.PHONY:					all clean fclean re
