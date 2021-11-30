@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/08 15:57:04 by bbrassar          #+#    #+#              #
-#    Updated: 2021/11/19 11:29:55 by bbrassar         ###   ########.fr        #
+#    Updated: 2021/11/30 06:15:42 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,7 @@ $(DIR_OBJ)/%.o:			$(DIR_SRC)/%.c
 						@mkdir -p $(@D)
 						$(CC) $(CFLAGS) $< -o $@
 
-$(LOCAL_LIBS):			.FORCE
+$(LOCAL_LIBS):
 						$(MAKE) -C $(@D) DEBUG=$(DEBUG) $(@F)
 
 all:					$(NAME)
@@ -94,7 +94,5 @@ re:						fclean all
 
 test:
 						$(MAKE) -C test
-
-.FORCE:
 
 .PHONY:					all clean fclean re test
